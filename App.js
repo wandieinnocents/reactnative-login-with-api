@@ -18,7 +18,7 @@ export default function App() {
           textAlign: 'center', alignItems: 'center'
 
         }}
-        placeholder="Enter email "
+        placeholder="Enter Email Address "
       />
 
       <TextInput
@@ -30,7 +30,7 @@ export default function App() {
           textAlign: 'center', alignItems: 'center'
 
         }}
-        placeholder="Type passord"
+        placeholder="Enter your Password"
       />
 
       {/* button */}
