@@ -1,26 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
+import React, {UseState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { useState } from 'react/cjs/react.production.min';
 
 export default function Login() {
+
+  const [email,setEmail] = useState();
+  const [password,setPassword] = useState();
   return (
     <View style={styles.container}>
-
       {/* icon */}
       {/* <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
        style={{width: 200, height: 200}} /> */}
 
       <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
-
       <TextInput
         style={{
           height: 40, width: '90%',
           marginTop: 20,
           backgroundColor: '#f0f8ff',
-          color: '#ffffff',
+          color: 'black',
           textAlign: 'center', alignItems: 'center'
-
         }}
         placeholder="Enter Email Address "
+        value={email}
+        onChangeText={(value) => setEmail(value)}
       />
 
       <TextInput
@@ -28,16 +32,18 @@ export default function Login() {
           height: 40, width: '90%',
           marginTop: 20,
           backgroundColor: '#f0f8ff',
-          color: '#ffffff',
+          color: 'black',
           textAlign: 'center', alignItems: 'center'
 
         }}
         placeholder="Enter your Password"
+        value={password}
+        onChangeText={(value) => setPassword(value)}
       />
 
       {/* button */}
       <TouchableOpacity
-        // onPress={onPress}
+        onPress={myfun}
         style={styles.btnContainer}
       >
         <Text style={styles.btnText}>LOGIN</Text>
