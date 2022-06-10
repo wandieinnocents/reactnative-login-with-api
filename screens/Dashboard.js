@@ -40,11 +40,7 @@ export default function Dashboard() {
                         <Text style={styles.btnText}>PROFILE</Text>
                     </TouchableOpacity>
                 </View>
-
-
             </View>
-
-
         </View>
     );
 }
@@ -79,20 +75,18 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        textAlign:'center',
-        justifyContent:'center'
+        justifyContent: 'center'
     },
     // logout
     logout: {
         flex: 1,
-        backgroundColor: 'green',
-        alignItems:"center",
-        justifyContent:'center',
+        alignItems: "center",
+        justifyContent: 'center',
+
 
     },
     profile: {
         flex: 1,
-        backgroundColor: 'red'
 
     },
 
