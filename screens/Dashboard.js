@@ -9,36 +9,40 @@ export default function Dashboard() {
             <Image source={{ uri: 'https://www.obg.eu.com/img/technologies/react.png' }}
                 style={{ width: 200, height: 200 }} />
 
-           <Text>
-               WELCOME USER
-           </Text>
-           <Text>
-             This is your dashboard ,
-           </Text>
-           {/* logout */}
+            <Text>
+                WELCOME USER
+            </Text>
+            <Text>
+                This is your dashboard ,
+            </Text>
 
-            {/* button */}
-            <TouchableOpacity
-                // onPress={onPress}
-                style={styles.btnContainer}
-            >
-                <Text style={styles.btnText}>LOGOUT</Text>
-            </TouchableOpacity>
-
-            {/* profile */}
-
-            {/* button */}
-            <TouchableOpacity
-                // onPress={onPress}
-                style={styles.btnContainer}
-            >
-                <Text style={styles.btnText}>PROFILE</Text>
-            </TouchableOpacity>
+            <View style={styles.flexLogoutProfile}>
+                {/* logout */}
+                <View style={styles.logout}>
+                    {/* button */}
+                    <TouchableOpacity
+                        // onPress={onPress}
+                        style={styles.btnContainer}
+                    >
+                        <Text style={styles.btnText}>LOGOUT</Text>
+                    </TouchableOpacity>
+                </View>
 
 
-         
-           
+                <View style={styles.profile}>
+                    {/* profile */}
 
+                    {/* button */}
+                    <TouchableOpacity
+                        // onPress={onPress}
+                        style={styles.btnContainer}
+                    >
+                        <Text style={styles.btnText}>PROFILE</Text>
+                    </TouchableOpacity>
+                </View>
+
+
+            </View>
 
 
         </View>
@@ -69,6 +73,27 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase",
+    },
+    //flex
+    flexLogoutProfile: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        textAlign:'center',
+        justifyContent:'center'
+    },
+    // logout
+    logout: {
+        flex: 1,
+        backgroundColor: 'green',
+        alignItems:"center",
+        justifyContent:'center',
+
+    },
+    profile: {
+        flex: 1,
+        backgroundColor: 'red'
+
     },
 
 });
