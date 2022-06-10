@@ -1,12 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {UseState} from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
-import { useState } from 'react/cjs/react.production.min';
+// import { useState } from 'react/cjs/react.production.min';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native-web';
+
+
 
 export default function Login() {
 
+  // set states
   const [email,setEmail] = useState();
   const [password,setPassword] = useState();
+
+  
+  myfun = async() => {
+    alert(email);
+  }
   return (
     <View style={styles.container}>
       {/* icon */}
@@ -45,7 +55,7 @@ export default function Login() {
       <TouchableOpacity
         onPress={myfun}
         style={styles.btnContainer}
-      >
+      > 
         <Text style={styles.btnText}>LOGIN</Text>
       </TouchableOpacity>
 
