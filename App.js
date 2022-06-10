@@ -1,48 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react-native';
 
+import Login from './screens/Login';
+import Register from './screens/Register';
+
 export default function App() {
   return (
-    <View style={styles.container}>
-
-      {/* icon */}
-      <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
-       style={{width: 200, height: 200}} />
-
-      <TextInput
-        style={{
-          height: 40, width: '90%',
-          marginTop: 20,
-          backgroundColor: '#f0f8ff',
-          color: '#ffffff',
-          textAlign: 'center', alignItems: 'center'
-
-        }}
-        placeholder="Enter Email Address "
-      />
-
-      <TextInput
-        style={{
-          height: 40, width: '90%',
-          marginTop: 20,
-          backgroundColor: '#f0f8ff',
-          color: '#ffffff',
-          textAlign: 'center', alignItems: 'center'
-
-        }}
-        placeholder="Enter your Password"
-      />
-
-      {/* button */}
-      <TouchableOpacity
-        // onPress={onPress}
-        style={styles.btnContainer}
-      >
-        <Text style={styles.btnText}>REGISTER</Text>
-      </TouchableOpacity>
-
-
-    </View>
+    <Register />
   );
 }
 
