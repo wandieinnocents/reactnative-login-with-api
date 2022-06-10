@@ -6,8 +6,8 @@ export default function Dashboard() {
         <View style={styles.container}>
 
             {/* icon */}
-            <Image source={{ uri: 'https://www.obg.eu.com/img/technologies/react.png' }}
-                style={{ width: 200, height: 200 }} />
+            <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
+
 
             <Text>
                 WELCOME USER

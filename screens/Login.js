@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 
 export default function Login() {
   return (
     <View style={styles.container}>
 
       {/* icon */}
-      <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
-       style={{width: 200, height: 200}} />
+      {/* <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
+       style={{width: 200, height: 200}} /> */}
+
+      <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
 
       <TextInput
         style={{
