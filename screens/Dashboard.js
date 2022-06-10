@@ -10,8 +10,32 @@ export default function Dashboard() {
                 style={{ width: 200, height: 200 }} />
 
            <Text>
-               Welcome User
+               WELCOME USER
            </Text>
+           <Text>
+             This is your dashboard ,
+           </Text>
+           {/* logout */}
+
+            {/* button */}
+            <TouchableOpacity
+                // onPress={onPress}
+                style={styles.btnContainer}
+            >
+                <Text style={styles.btnText}>LOGOUT</Text>
+            </TouchableOpacity>
+
+            {/* profile */}
+
+            {/* button */}
+            <TouchableOpacity
+                // onPress={onPress}
+                style={styles.btnContainer}
+            >
+                <Text style={styles.btnText}>PROFILE</Text>
+            </TouchableOpacity>
+
+
          
            
 
