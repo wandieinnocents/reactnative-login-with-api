@@ -1,11 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput ,TouchableOpacity} from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+      <TextInput
+        style={{
+          height: 40, width: '100%',
+          marginTop: 20,
+          backgroundColor: '#4F8EF7',
+          color: '#ffffff',
+          textAlign: 'center', alignItems: 'center'
+
+        }}
+        placeholder="email"
+      />
+
+      <TextInput
+        style={{
+          height: 40, width: '100%',
+          marginTop: 20,
+          backgroundColor: '#4F8EF7',
+          color: '#ffffff',
+          textAlign: 'center', alignItems: 'center'
+
+        }}
+        placeholder="password"
+      />
+
+      {/* button */}
+      <TouchableOpacity
+              // onPress={onPress}
+              style={styles.btnContainer}
+            >
+              <Text style={styles.btnText}>REGISTER</Text>
+            </TouchableOpacity>
+
     </View>
   );
 }
@@ -17,4 +48,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+   // login button
+   btnContainer: {
+    elevation: 5,
+    backgroundColor: "#4F8EF7",
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginTop: 20,
+  },
+   //login Button text
+   btnText: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase",
+  },
+
 });
