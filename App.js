@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput ,TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function App() {
   return (
@@ -7,7 +7,7 @@ export default function App() {
 
       <TextInput
         style={{
-          height: 40, width: '100%',
+          height: 40, width: '90%',
           marginTop: 20,
           backgroundColor: '#4F8EF7',
           color: '#ffffff',
@@ -19,7 +19,7 @@ export default function App() {
 
       <TextInput
         style={{
-          height: 40, width: '100%',
+          height: 40, width: '90%',
           marginTop: 20,
           backgroundColor: '#4F8EF7',
           color: '#ffffff',
@@ -31,11 +31,12 @@ export default function App() {
 
       {/* button */}
       <TouchableOpacity
-              // onPress={onPress}
-              style={styles.btnContainer}
-            >
-              <Text style={styles.btnText}>REGISTER</Text>
-            </TouchableOpacity>
+        // onPress={onPress}
+        style={styles.btnContainer}
+      >
+        <Text style={styles.btnText}>REGISTER</Text>
+      </TouchableOpacity>
+
 
     </View>
   );
@@ -48,17 +49,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-   // login button
-   btnContainer: {
+  // login button
+  btnContainer: {
     elevation: 5,
     backgroundColor: "#4F8EF7",
     borderRadius: 30,
     paddingVertical: 10,
+    width: '60%',
     paddingHorizontal: 12,
     marginTop: 20,
   },
-   //login Button text
-   btnText: {
+  //login Button text
+  btnText: {
     fontSize: 18,
     color: "#fff",
     fontWeight: "bold",
