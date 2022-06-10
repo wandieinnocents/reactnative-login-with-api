@@ -1,32 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
 
+      {/* icon */}
+      <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
+       style={{width: 200, height: 200}} />
+
       <TextInput
         style={{
           height: 40, width: '90%',
           marginTop: 20,
-          backgroundColor: '#4F8EF7',
+          backgroundColor: '#f0f8ff',
           color: '#ffffff',
           textAlign: 'center', alignItems: 'center'
 
         }}
-        placeholder="email"
+        placeholder="Enter email "
       />
 
       <TextInput
         style={{
           height: 40, width: '90%',
           marginTop: 20,
-          backgroundColor: '#4F8EF7',
+          backgroundColor: '#f0f8ff',
           color: '#ffffff',
           textAlign: 'center', alignItems: 'center'
 
         }}
-        placeholder="password"
+        placeholder="Type passord"
       />
 
       {/* button */}
@@ -53,9 +57,9 @@ const styles = StyleSheet.create({
   btnContainer: {
     elevation: 5,
     backgroundColor: "#4F8EF7",
-    borderRadius: 30,
+    // borderRadius: 30,
     paddingVertical: 10,
-    width: '60%',
+    width: '90%',
     paddingHorizontal: 12,
     marginTop: 20,
   },
