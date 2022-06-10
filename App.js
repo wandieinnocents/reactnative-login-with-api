@@ -3,10 +3,11 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react
 
 import Login from './screens/Login';
 import Register from './screens/Register';
+import Dashboard from './screens/Dashboard';
 
 export default function App() {
   return (
-    <Register />
+    <Dashboard />
   );
 }
 
