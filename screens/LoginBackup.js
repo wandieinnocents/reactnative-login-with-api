@@ -2,22 +2,40 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 // import { useState } from 'react/cjs/react.production.min';
-// import { AsyncStorage} from @react-native-community/async-storage;
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native-web';
+
 
 
 export default function Login() {
 
-
+  // set states
+  const [email,setEmail] = useState();
+  const [password,setPassword] = useState();
 
   
-  // myfun = async() => {
-  //   alert(email);
-  // }
+  myfun = async() => {
+    // alert(email);
+    await fetch('http://127.0.0.1:8000/api/login',{
+      method:'POST',
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type':'application/json'
+
+      },
+      // data that is posted
+      body: JSON.stringify({"email": email,"password":password})
+
+    }).then(res => res.json())
+      .then(resData => {
+        // alert(resData.token);
+        console.log(resData);
+      });
+  }
   return (
     <View style={styles.container}>
       {/* icon */}
-      {/* <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
-       style={{width: 200, height: 200}} /> */}
+      
 
       <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
       <TextInput
@@ -29,8 +47,8 @@ export default function Login() {
           textAlign: 'center', alignItems: 'center'
         }}
         placeholder="Enter Email Address "
-        // value={email}
-        // onChangeText={(value) => setEmail(value)}
+        value={email}
+        onChangeText={(value) => setEmail(value)}
       />
 
       <TextInput
@@ -43,17 +61,19 @@ export default function Login() {
 
         }}
         placeholder="Enter your Password"
-        // value={password}
-        // onChangeText={(value) => setPassword(value)}
+        value={password}
+        onChangeText={(value) => setPassword(value)}
       />
 
       {/* button */}
       <TouchableOpacity
-        // onPress={myfun}
+        onPress={myfun}
         style={styles.btnContainer}
-      >
+      > 
         <Text style={styles.btnText}>LOGIN</Text>
       </TouchableOpacity>
+
+
     </View>
   );
 }
