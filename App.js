@@ -1,13 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Dashboard from './screens/Dashboard';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-    <Register />
+    <NavigationContainer>
+      <Register />
+    </NavigationContainer>
+
   );
 }
 
