@@ -45,8 +45,9 @@ export default function Register({ navigation }) {
       if (response.status === 201) {
         alert(` You have created: ${JSON.stringify(response.data)}`);
         setIsLoading(false);
-        setFullName('');
+        setName('');
         setEmail('');
+        setPassword('');
       } else {
         throw new Error("An error has occurred");
       }
@@ -72,6 +73,9 @@ export default function Register({ navigation }) {
 
                 }}
                 placeholder="Enter Your UserName "
+                value={name}
+                editable={!isLoading}
+                onChangeText={onChangeNameHandler}
             />
 
             <TextInput
@@ -84,6 +88,9 @@ export default function Register({ navigation }) {
 
                 }}
                 placeholder="Enter  Email  Address "
+                value={email}
+                editable={!isLoading}
+                onChangeText={onChangeEmailHandler}
             />
 
             <TextInput
@@ -96,6 +103,9 @@ export default function Register({ navigation }) {
 
                 }}
                 placeholder="Enter  your  Password"
+                value={password}
+                editable={!isLoading}
+                onChangeText={onChangePasswordHandler}
             />
 
             {/* button */}
