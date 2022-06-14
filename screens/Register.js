@@ -26,6 +26,35 @@ export default function Register({ navigation }) {
   const onChangePasswordHandler = (password) => {
     setPassword(password);
   };
+
+  
+
+
+  const onSubmitFormHandler = async (event) => {
+    if (!name.trim() || !email.trim() || !password.trim()) {
+      alert("Name or Email  or Password is invalid");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const response = await axios.post(`${baseUrl}/registration`, {
+        name,
+        email,
+        password,
+      });
+      if (response.status === 201) {
+        alert(` You have created: ${JSON.stringify(response.data)}`);
+        setIsLoading(false);
+        setFullName('');
+        setEmail('');
+      } else {
+        throw new Error("An error has occurred");
+      }
+    } catch (error) {
+      alert("An error has occurred");
+      setIsLoading(false);
+    }
+  };
     
     
     return (
