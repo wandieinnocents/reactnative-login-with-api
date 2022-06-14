@@ -9,6 +9,9 @@ import Dashboard from './Dashboard';
 import Register from './Register';
 export default function Login({ navigation }) {
 
+const [email,setEmail] = useState(null);
+const [password,setPassword] = useState(null);
+
   // myfun = async() => {
   //   alert(email);
   // }
@@ -28,8 +31,8 @@ export default function Login({ navigation }) {
           textAlign: 'center', alignItems: 'center'
         }}
         placeholder="Enter Email Address "
-      // value={email}
-      // onChangeText={(value) => setEmail(value)}
+      value={email}
+      onChangeText={(text) => setEmail(text)}
       />
 
       <TextInput
@@ -42,8 +45,9 @@ export default function Login({ navigation }) {
 
         }}
         placeholder="Enter your Password"
-      // value={password}
-      // onChangeText={(value) => setPassword(value)}
+      value={password}
+      onChangeText={(text) => setPassword(text)}
+      // secureTextEntry
       />
 
       {/* button */}

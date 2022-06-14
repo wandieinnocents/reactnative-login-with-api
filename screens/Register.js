@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
 
 export default function Register({ navigation }) {
+    
     return (
         <View style={styles.container}>
 

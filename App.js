@@ -11,8 +11,7 @@ import * as React from 'react';
 const Stack = createNativeStackNavigator();
 
 export default function App() { 
-
-
+ 
   return (
    
     <NavigationContainer>
@@ -20,9 +19,12 @@ export default function App() {
       <Stack.Screen
         name="Register"
         component={Register}
-        options={{ title: 'Register' }}
+        options={{ headerShown:'false' }}
       />
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen 
+      name="Login" 
+      component={Login} 
+      />
       <Stack.Screen name="Dashboard" component={Dashboard} />
     </Stack.Navigator>
   </NavigationContainer>
