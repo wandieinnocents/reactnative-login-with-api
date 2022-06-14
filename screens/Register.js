@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
 
-
 export default function Register({ navigation }) {
     return (
         <View style={styles.container}>
@@ -69,7 +68,7 @@ export default function Register({ navigation }) {
         </View>
 
 
-        </View >
+        
     );
 }
 
