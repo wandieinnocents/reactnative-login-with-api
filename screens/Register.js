@@ -110,10 +110,11 @@ export default function Register({ navigation }) {
 
             {/* button */}
             <TouchableOpacity
-                onPress={() =>
-                    navigation.navigate('Login')
-                }
+                // onPress={() => navigation.navigate('Login') }
+                onPress={onSubmitFormHandler}
+
                 style={styles.btnContainer}
+                disabled={isLoading}
             >
                 <Text style={styles.btnText}>REGISTER</Text>
             </TouchableOpacity>
