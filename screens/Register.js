@@ -4,12 +4,12 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
 
 
-export default function Register({navigation}) {
+export default function Register({ navigation }) {
     return (
         <View style={styles.container}>
 
             {/* icon */}
-            <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
+            <Image source={require('../assets/logo.png')} style={{ width: 200, height: 200 }} />
             <TextInput
                 style={{
                     height: 40, width: '90%',
@@ -50,14 +50,26 @@ export default function Register({navigation}) {
             <TouchableOpacity
                 onPress={() =>
                     navigation.navigate('Login')
-                  }
+                }
                 style={styles.btnContainer}
             >
                 <Text style={styles.btnText}>REGISTER</Text>
             </TouchableOpacity>
 
-
+            {/* dont have account  */}
+            <View style={{ flexDirection: 'row', marginTop: 20 }}>
+                <Text > Have an account ? </Text>
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.navigate('Login')
+                    }>
+                    <Text style={{ color: 'blue' }}>Login </Text>
+                </TouchableOpacity>
+            </View>
         </View>
+
+
+        </View >
     );
 }
 

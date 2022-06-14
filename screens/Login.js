@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 // import { useState } from 'react/cjs/react.production.min';
 // import { AsyncStorage} from @react-native-community/async-storage;
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import Dashboard from './Dashboard';
-export default function Login({navigation}) {
-  
+import Register from './Register';
+export default function Login({ navigation }) {
+
   // myfun = async() => {
   //   alert(email);
   // }
@@ -17,7 +18,7 @@ export default function Login({navigation}) {
       {/* <Image source={{uri: 'https://www.obg.eu.com/img/technologies/react.png'}}
        style={{width: 200, height: 200}} /> */}
 
-      <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
+      <Image source={require('../assets/logo.png')} style={{ width: 200, height: 200 }} />
       <TextInput
         style={{
           height: 40, width: '90%',
@@ -27,8 +28,8 @@ export default function Login({navigation}) {
           textAlign: 'center', alignItems: 'center'
         }}
         placeholder="Enter Email Address "
-        // value={email}
-        // onChangeText={(value) => setEmail(value)}
+      // value={email}
+      // onChangeText={(value) => setEmail(value)}
       />
 
       <TextInput
@@ -41,8 +42,8 @@ export default function Login({navigation}) {
 
         }}
         placeholder="Enter your Password"
-        // value={password}
-        // onChangeText={(value) => setPassword(value)}
+      // value={password}
+      // onChangeText={(value) => setPassword(value)}
       />
 
       {/* button */}
@@ -54,15 +55,19 @@ export default function Login({navigation}) {
         style={styles.btnContainer}
       >
         <Text style={styles.btnText}>LOGIN</Text>
-       
+
 
       </TouchableOpacity>
 
-      <View style={{ flexDirection:'row', marginTop:20}}>
-      <Text >Dont have an account ? </Text>
-      <TouchableOpacity>
-      <Text style={{ color:'blue'}}>Register </Text>
-      </TouchableOpacity>
+      {/* dont have account  */}
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Text >Dont have an account ? </Text>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('Register')
+          }>
+          <Text style={{ color: 'blue' }}>Register </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
