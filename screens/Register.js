@@ -4,7 +4,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
 
 
-export default function Register() {
+export default function Register({navigation}) {
     return (
         <View style={styles.container}>
 
@@ -48,7 +48,9 @@ export default function Register() {
 
             {/* button */}
             <TouchableOpacity
-                onPress={() => navigation.navigate('Login')}
+                onPress={() =>
+                    navigation.navigate('Login')
+                  }
                 style={styles.btnContainer}
             >
                 <Text style={styles.btnText}>REGISTER</Text>

@@ -20,7 +20,7 @@ export default function App() {
       <Stack.Screen
         name="Register"
         component={Register}
-        options={{ title: 'Welcome' }}
+        options={{ title: 'Register' }}
       />
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
