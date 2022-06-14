@@ -1,5 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Login from './Login';
+
 
 export default function Register() {
     return (
@@ -7,8 +10,6 @@ export default function Register() {
 
             {/* icon */}
             <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
-
-
             <TextInput
                 style={{
                     height: 40, width: '90%',
@@ -47,7 +48,7 @@ export default function Register() {
 
             {/* button */}
             <TouchableOpacity
-                // onPress={onPress}
+                onPress={() => navigation.navigate('Login')}
                 style={styles.btnContainer}
             >
                 <Text style={styles.btnText}>REGISTER</Text>
