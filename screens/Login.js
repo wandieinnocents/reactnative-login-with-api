@@ -44,7 +44,7 @@ const [password,setPassword] = useState(null);
           textAlign: 'center', alignItems: 'center'
 
         }}
-        placeholder="Enter your Password"
+        placeholder="Enter your Password" 
       value={password}
       onChangeText={(text) => setPassword(text)}
       // secureTextEntry
