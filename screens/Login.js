@@ -58,10 +58,10 @@ export default function Login({navigation}) {
 
       </TouchableOpacity>
 
-      <View style={{ flexDirection:'row'}}>
+      <View style={{ flexDirection:'row', marginTop:20}}>
       <Text >Dont have an account ? </Text>
       <TouchableOpacity>
-      <Text >Register </Text>
+      <Text style={{ color:'blue'}}>Register </Text>
       </TouchableOpacity>
       </View>
     </View>
