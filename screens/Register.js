@@ -1,8 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
+import axios from "axios";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
+import Constants from "expo-constants";
+
+const baseUrl = "http://restapi.adequateshop.com/api/authaccount/"; 
 
 export default function Register({ navigation }) {
     
@@ -14,7 +18,7 @@ export default function Register({ navigation }) {
             <TextInput
                 style={{
                     height: 40, width: '90%',
-                    marginTop: 20,
+                    marginTop:20,
                     backgroundColor: '#f0f8ff',
                     color: '#ffffff',
                     textAlign: 'center', alignItems: 'center'
@@ -54,7 +58,7 @@ export default function Register({ navigation }) {
                 }
                 style={styles.btnContainer}
             >
-                <Text style={styles.btnText}>REGISTER</Text>
+                <Text style={styles.btnText}>REGISTEop</Text>
             </TouchableOpacity>
 
             {/* dont have account  */}
