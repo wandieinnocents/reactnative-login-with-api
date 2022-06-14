@@ -23,6 +23,7 @@ export default function App() {
         options={{ title: 'Register' }}
       />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Dashboard" component={Dashboard} />
     </Stack.Navigator>
   </NavigationContainer>
  

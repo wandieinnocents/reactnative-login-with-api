@@ -3,12 +3,10 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 // import { useState } from 'react/cjs/react.production.min';
 // import { AsyncStorage} from @react-native-community/async-storage;
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-
-export default function Login() {
-
-
-
+import Dashboard from './Dashboard';
+export default function Login({navigation}) {
   
   // myfun = async() => {
   //   alert(email);
@@ -50,6 +48,9 @@ export default function Login() {
       {/* button */}
       <TouchableOpacity
         // onPress={myfun}
+        onPress={() =>
+          navigation.navigate('Dashboard')
+        }
         style={styles.btnContainer}
       >
         <Text style={styles.btnText}>LOGIN</Text>
