@@ -18,7 +18,7 @@ export default function Register({ navigation }) {
                     textAlign: 'center', alignItems: 'center'
 
                 }}
-                placeholder="Enter User Name "
+                placeholder="Enter Your UserName "
             />
 
             <TextInput
@@ -30,7 +30,7 @@ export default function Register({ navigation }) {
                     textAlign: 'center', alignItems: 'center'
 
                 }}
-                placeholder="Enter Email Address "
+                placeholder="Enter  Email Address "
             />
 
             <TextInput
@@ -42,7 +42,7 @@ export default function Register({ navigation }) {
                     textAlign: 'center', alignItems: 'center'
 
                 }}
-                placeholder="Enter your Password"
+                placeholder="Enter  your Password"
             />
 
             {/* button */}
