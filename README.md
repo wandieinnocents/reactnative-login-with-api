@@ -14,3 +14,6 @@ Login with api using react native
 - ALL USERS   : http://localhost:8001/api/users
 - SINGLE USER : http://localhost:8001/api/users/5
 - PROFILE     : http://localhost:8001/api/profile
+
+## ONline testing API
+- https://www.appsloveworld.com/sample-rest-api-url-for-testing-with-authentication#huserregistration
