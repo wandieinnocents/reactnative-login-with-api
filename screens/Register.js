@@ -14,6 +14,19 @@ export default function Register({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const onChangeNameHandler = (name) => {
+    setName(name);
+  };
+
+  const onChangeEmailHandler = (email) => {
+    setEmail(email);
+  };
+
+  const onChangePasswordHandler = (password) => {
+    setPassword(password);
+  };
+    
     
     return (
         <View style={styles.container}>
