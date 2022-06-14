@@ -54,7 +54,16 @@ export default function Login({navigation}) {
         style={styles.btnContainer}
       >
         <Text style={styles.btnText}>LOGIN</Text>
+       
+
       </TouchableOpacity>
+
+      <View style={{ flexDirection:'row'}}>
+      <Text >Dont have an account ? </Text>
+      <TouchableOpacity>
+      <Text >Register </Text>
+      </TouchableOpacity>
+      </View>
     </View>
   );
 }
