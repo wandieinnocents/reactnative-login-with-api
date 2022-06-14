@@ -9,6 +9,11 @@ import Constants from "expo-constants";
 const baseUrl = "http://restapi.adequateshop.com/api/authaccount/"; 
 
 export default function Register({ navigation }) {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
     
     return (
         <View style={styles.container}>
@@ -58,7 +63,7 @@ export default function Register({ navigation }) {
                 }
                 style={styles.btnContainer}
             >
-                <Text style={styles.btnText}>REGISTEop</Text>
+                <Text style={styles.btnText}>REGISTER</Text>
             </TouchableOpacity>
 
             {/* dont have account  */}
@@ -68,7 +73,7 @@ export default function Register({ navigation }) {
                     onPress={() =>
                         navigation.navigate('Login')
                     }>
-                    <Text style={{ color: 'blue' }}>Login </Text>
+                    <Text style={{ color: 'blue' }}>Login</Text>
                 </TouchableOpacity>
             </View>
         </View>
