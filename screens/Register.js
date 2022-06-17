@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
@@ -33,24 +33,31 @@ export default function Register({ navigation }) {
   };
 
 
-  
+  // header options
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
 
   const onSubmitFormHandler = async (event) => {
+    // console.log();
     if (!name.trim() || !email.trim() || !password.trim() || !password_confirmation.trim()) {
       alert("Name or Email  or Password is invalid");
       return;
     }
     setIsLoading(true);
     try {
-      const response = await axios.post('${baseUrl}/register', {
+      const response = await axios.post('http://localhost:8000/api/register',options, 
+      {
         name,
         email,
         password,
         password_confirmation,
       });
       if (response.code === 201) {
-        console.log(response.data);  
+        console.log(response.message);  
         alert('You have created: ${JSON.stringify(response.data)}');
         setIsLoading(false);
         setName('');

@@ -6,7 +6,6 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import axios from 'axios';
 
-
 import Dashboard from './Dashboard';
 import Register from './Register';
 export default function Login({ navigation }) {
@@ -82,8 +81,8 @@ export default function Login({ navigation }) {
 
       {/* button */}
       <TouchableOpacity
-        onPress={handleSubmit}
-        // onPress={() =>navigation.navigate('Dashboard')}
+        // onPress={handleSubmit}
+        onPress={() =>navigation.navigate('Dashboard')}
         style={styles.btnContainer}
       >
         <Text style={styles.btnText}>LOGIN</Text>

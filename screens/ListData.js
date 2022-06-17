@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
-import ListData from './ListData';
-export default function Dashboard({navigation}) {
+
+export default function ListData() {
     return (
         <View style={styles.container}>
 
@@ -10,7 +10,7 @@ export default function Dashboard({navigation}) {
 
 
             <Text>
-                WELCOME USER
+                WELCOME d
             </Text>
             <Text>
                 This is your dashboard ,
@@ -34,10 +34,10 @@ export default function Dashboard({navigation}) {
 
                     {/* button */}
                     <TouchableOpacity
-                        onPress={() =>navigation.navigate('ListData')}
+                        // onPress={onPress}
                         style={styles.btnContainer}
                     >
-                        <Text style={styles.btnText}>LIST DATA</Text>
+                        <Text style={styles.btnText}>PROFILE</Text>
                     </TouchableOpacity>
                 </View>
             </View>
