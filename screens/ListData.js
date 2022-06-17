@@ -83,13 +83,15 @@ const styles = StyleSheet.create({
     },
     // card
     cardList: {
-        backgroundColor: '#f0f8ff',
+        backgroundColor: '#2E9AFE',
         height: 60,
         borderRadius: 30,
         paddingTop:20,
         paddingLeft:20,
+        fontSize:20,
         marginTop:12,
         padding:10,
+        color:'#ffffff',
         
 
     }
