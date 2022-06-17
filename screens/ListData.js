@@ -1,47 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, FlatList, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 
 export default function ListData() {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+    console.log(data);
+
+    useEffect(() => {
+        fetch('https://raw.githubusercontent.com/adhithiravi/React-Hooks-Examples/master/testAPI.json')
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
     return (
-        <View style={styles.container}>
-
-            {/* icon */}
-            <Image source={require('../assets/logo.png')} style={{width: 200, height: 200}}/>
-
-
-            <Text>
-                WELCOME d
-            </Text>
-            <Text>
-                This is your dashboard ,
-            </Text>
-
-            <View style={styles.flexLogoutProfile}>
-                {/* logout */}
-                <View style={styles.logout}>
-                    {/* button */}
-                    <TouchableOpacity
-                        // onPress={onPress}
-                        style={styles.btnContainer}
-                    >
-                        <Text style={styles.btnText}>LOGOUT</Text>
-                    </TouchableOpacity>
-                </View>
-
-
-                <View style={styles.profile}>
-                    {/* profile */}
-
-                    {/* button */}
-                    <TouchableOpacity
-                        // onPress={onPress}
-                        style={styles.btnContainer}
-                    >
-                        <Text style={styles.btnText}>PROFILE</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+        <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? <Text>Loading...</Text> : 
+      ( <View style={{ flex: 1, flexDirection: 'column', justifyContent:  'space-between'}}>
+          <Text style={{ fontSize: 18, color: 'green', textAlign: 'center'}}>{data.title}</Text>
+          <Text style={{ fontSize: 14, color: 'green', textAlign: 'center', paddingBottom: 10}}>Articles:</Text>
+          <FlatList
+            data={data.articles}
+            keyExtractor={({ id }, index) => id}
+            renderItem={({ item }) => (
+              <Text>{item.id + '. ' + item.title}</Text>
+            )}
+          />
         </View>
+      )}
+    </View>
     );
 }
 
