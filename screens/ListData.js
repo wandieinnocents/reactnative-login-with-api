@@ -17,20 +17,23 @@ export default function ListData() {
 
     return (
         <View style={{ flex: 1, padding: 24 }}>
-      {isLoading ? <Text>Loading...</Text> : 
-      ( <View style={{ flex: 1, flexDirection: 'column', justifyContent:  'space-between'}}>
-          <Text style={{ fontSize: 18, color: 'green', textAlign: 'center'}}>{data.title}</Text>
-          <Text style={{ fontSize: 14, color: 'green', textAlign: 'center', paddingBottom: 10}}>Articles:</Text>
-          <FlatList
-            data={data.articles}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-              <Text>{item.id + '. ' + item.title}</Text>
-            )}
-          />
+            {isLoading ? <Text>Loading Content...</Text> :
+                (<View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <Text style={{ fontSize: 18, color: 'green', textAlign: 'center' }}>{data.title}</Text>
+                    <Text style={{ fontSize: 14, color: 'green', textAlign: 'center', paddingBottom: 10 }}>Articles:</Text>
+                    <FlatList
+                        data={data.articles}
+                        keyExtractor={({ id }, index) => id}
+                        renderItem={({ item }) => (
+                            <View>
+                                <Text style={styles.cardList} >{item.id + '. ' + item.title}</Text>
+                            </View>
+
+                        )}
+                    />
+                </View>
+                )}
         </View>
-      )}
-    </View>
     );
 }
 
@@ -78,5 +81,17 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
+    // card
+    cardList: {
+        backgroundColor: '#f0f8ff',
+        height: 60,
+        borderRadius: 30,
+        paddingTop:20,
+        paddingLeft:20,
+        marginTop:12,
+        padding:10,
+        
+
+    }
 
 });
