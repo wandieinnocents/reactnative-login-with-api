@@ -6,13 +6,14 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from './Login';
 import Constants from "expo-constants";
 
-const baseUrl = "http://restapi.adequateshop.com/api/authaccount/"; 
+const baseUrl = "http://127.0.0.1:8000/api"; 
 
 export default function Register({ navigation }) {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const onChangeNameHandler = (name) => {
@@ -27,31 +28,41 @@ export default function Register({ navigation }) {
     setPassword(password);
   };
 
+  const onChangePasswordConfirmationHandler = (password_confirmation) => {
+    setPasswordConfirmation(password_confirmation);
+  };
+
+
   
 
 
   const onSubmitFormHandler = async (event) => {
-    if (!name.trim() || !email.trim() || !password.trim()) {
+    if (!name.trim() || !email.trim() || !password.trim() || !password_confirmation.trim()) {
       alert("Name or Email  or Password is invalid");
       return;
     }
     setIsLoading(true);
     try {
-      const response = await axios.post(`${baseUrl}/registration`, {
+      const response = await axios.post('${baseUrl}/register', {
         name,
         email,
         password,
+        password_confirmation,
       });
-      if (response.status === 201) {
-        alert(` You have created: ${JSON.stringify(response.data)}`);
+      if (response.code === 201) {
+        console.log(response.data);  
+        alert('You have created: ${JSON.stringify(response.data)}');
         setIsLoading(false);
         setName('');
         setEmail('');
         setPassword('');
+        setPasswordConfirmation('');
       } else {
+        // console.log(response.data);
         throw new Error("An error has occurred");
       }
     } catch (error) {
+     console.log(error);        
       alert("An error has occurred");
       setIsLoading(false);
     }
@@ -68,7 +79,7 @@ export default function Register({ navigation }) {
                     height: 40, width: '90%',
                     marginTop:20,
                     backgroundColor: '#f0f8ff',
-                    color: '#ffffff',
+                    color: '#000',
                     textAlign: 'center', alignItems: 'center'
 
                 }}
@@ -83,7 +94,7 @@ export default function Register({ navigation }) {
                     height: 40, width: '90%',
                     marginTop: 20,
                     backgroundColor: '#f0f8ff',
-                    color: '#ffffff',
+                    color: '#000',
                     textAlign: 'center', alignItems: 'center'
 
                 }}
@@ -98,7 +109,7 @@ export default function Register({ navigation }) {
                     height: 40, width: '90%',
                     marginTop: 20,
                     backgroundColor: '#f0f8ff',
-                    color: '#ffffff',
+                    color: '#000',
                     textAlign: 'center', alignItems: 'center'
 
                 }}
@@ -106,6 +117,22 @@ export default function Register({ navigation }) {
                 value={password}
                 editable={!isLoading}
                 onChangeText={onChangePasswordHandler}
+            />
+
+
+<TextInput
+                style={{
+                    height: 40, width: '90%',
+                    marginTop: 20,
+                    backgroundColor: '#f0f8ff',
+                    color: '#000',
+                    textAlign: 'center', alignItems: 'center'
+
+                }}
+                placeholder="reenter  your  Password"
+                value={password_confirmation}
+                editable={!isLoading}
+                onChangeText={onChangePasswordConfirmationHandler}
             />
 
             {/* button */}
