@@ -15,7 +15,7 @@ export default function ListData() {
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, []);
+    }, []); 
 
     return (
         <View style={{ flex: 1, padding: 24 }}>
