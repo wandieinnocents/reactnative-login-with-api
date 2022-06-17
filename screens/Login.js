@@ -4,17 +4,48 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 // import { useState } from 'react/cjs/react.production.min';
 // import { AsyncStorage} from @react-native-community/async-storage;
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import axios from 'axios';
+
 
 import Dashboard from './Dashboard';
 import Register from './Register';
 export default function Login({ navigation }) {
 
-const [email,setEmail] = useState(null);
-const [password,setPassword] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
-  // myfun = async() => {
-  //   alert(email);
-  // }
+  // set form vavlues
+  const [formValue, setformValue] = React.useState({
+    email: '',
+    password: ''
+  });
+
+  const handleSubmit = async() => {
+    // store the states in the form data
+    const loginFormData = new FormData();
+    loginFormData.append("username", formValue.email)
+    loginFormData.append("password", formValue.password)
+  
+    try {
+      // make axios post request
+      const response = await axios({
+        method: "post",
+        url: "http://127.0.0.1:8000/api/login",
+        data: loginFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  const handleChange = (event) => {
+    setformValue({
+      ...formValue,
+      [event.target.name]: event.target.value
+    });
+  }
+
   return (
     <View style={styles.container}>
       {/* icon */}
@@ -31,8 +62,8 @@ const [password,setPassword] = useState(null);
           textAlign: 'center', alignItems: 'center'
         }}
         placeholder="Enter Email Address "
-      value={email}
-      onChangeText={(text) => setEmail(text)}
+        value={formValue.email}
+        onChange={handleChange}
       />
 
       <TextInput
@@ -44,18 +75,15 @@ const [password,setPassword] = useState(null);
           textAlign: 'center', alignItems: 'center'
 
         }}
-        placeholder="Enter your Password" 
-      value={password}
-      onChangeText={(text) => setPassword(text)}
-      // secureTextEntry
+        placeholder="Enter your Password"
+        value={formValue.password}
+        onChange={handleChange}
       />
 
       {/* button */}
       <TouchableOpacity
-        // onPress={myfun}
-        onPress={() =>
-          navigation.navigate('Dashboard')
-        }
+        onPress={handleSubmit}
+        // onPress={() =>navigation.navigate('Dashboard')}
         style={styles.btnContainer}
       >
         <Text style={styles.btnText}>LOGIN</Text>
@@ -67,9 +95,8 @@ const [password,setPassword] = useState(null);
       <View style={{ flexDirection: 'row', marginTop: 20 }}>
         <Text >Dont have an account ? </Text>
         <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Register')
-          }>
+          onPress={() => navigation.navigate('Register')}
+        >
           <Text style={{ color: 'blue' }}>Register </Text>
         </TouchableOpacity>
       </View>
