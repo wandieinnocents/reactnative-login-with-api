@@ -5,7 +5,7 @@ import { StyleSheet, FlatList, Text, View, TextInput, TouchableOpacity, Image } 
 export default function ListData() {
     // loader
     const [isLoading, setLoading] = useState(true);
-    // data
+    // data fetch state
     const [data, setData] = useState([]);
     console.log(data);
 
